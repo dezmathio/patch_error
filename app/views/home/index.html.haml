@@ -1,2 +1,16 @@
-%h1 Home#index
-%p Find me in app/views/home/index.html.haml
+%h1 PATCH-Failure
+%input#do-put{type: 'button', value: 'Click Me'}
+%div#output
+
+:javascript
+    $(document).ready( function() {
+      $('#do-put').click(function(){
+        $.ajax({
+            url: '/',
+            data: {'test_param' : 'test', 'test_param_two' : 'test_two'},
+            dataType: 'script',
+            type: 'PATCH',
+            success: function(data) { $('#output').append(data); }
+          });
+      });
+    });
